@@ -5,7 +5,7 @@ function home () {
     return (
         <Default>
             <main>
-              <h1>HOME</h1>
+              <h1>REST-Rant</h1>
             <div>
                 <img src="/images/rainbow-food.jpg" alt="A rainbow food arrangement" height="400px"/>
                 <div>

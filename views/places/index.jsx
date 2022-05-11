@@ -6,11 +6,11 @@ function index (data) {
         return (
           <div className="col-sm-6">
             <h2>{place.name}</h2>
-            <p clasName="text-center">
+            <p className="text-center">
               {place.cuisines}
             </p>
-            <img src={place.pic} alt={place.name} />
-            <p clasName="text-center">
+            <img src={place.pic} alt={place.name} height="500px" width="500px"/>
+            <p className="text-center">
               Located in {place.city}, {place.state}
             </p>
           </div>
