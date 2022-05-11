@@ -3,11 +3,14 @@ const Default = require('./default')
 
 function home () {
     return (
-      <Default>
-          <main>
+        <Default>
+            <main>
               <h1>HOME</h1>
-          </main>
-      </Default>
+                <a href="/places">
+                    <button className="btn-primary">Places Page</button>
+                </a>
+             </main>
+        </Default>
     )
 }  
 
