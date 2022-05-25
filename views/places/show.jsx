@@ -2,6 +2,25 @@ const React = require('react')
 const Def = require('../default')
 
 function show (data) {
+    let comments = (
+        <h3 className="inactive">
+            No comments yet!
+        </h3>
+    )
+    if (data.place.comments.length) {
+        comments = data.place.comments.map(c => {
+          return (
+            <div className="border">
+              <h2 className="rant">{c.rant ? 'Rant!' : 'Rave!'}</h2>
+              <h4>{c.content}</h4>
+              <h3>
+                <stong>- {c.author}</stong>
+              </h3>
+              <h4>Rating: {c.stars}</h4>
+            </div>
+          )
+        })
+      }
     return (
         <Def>
           <main>
@@ -23,9 +42,37 @@ function show (data) {
                         Delete
                     </button>
                 </form> 
+            <hr />
+            <div>
+                <h2>Comments</h2>
+                    {comments}
+            </div>
+            <h1>Add a comment!</h1>
+            <form method="POST" action="/:id/comment">
+                <div className="form-group">
+                    <label htmlFor="name">Author</label>
+                    <input className="form-control" id="author" name="author" required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="pic">Your comment</label>
+                    <input className="form-control" id="content" name="content" type="textarea"/>
+                </div>
+                <div className="">
+                    <label htmlFor="city">Star rating</label>
+                    <input className="form-control" id="stars" name="stars" type="number" step="0.5" min="0" max="10"/>
+                </div>
+                <div>
+                    <label htmlFor="state">Rant?</label>
+                    <input className="form-control" id="rant" name="rant" type="checkbox" />
+                </div>
+            <a>
+              <input className="btn btn-primary" type="submit" value="Submit" />
+            </a>
+            </form>
           </main>
         </Def>
     )
 }
 
 module.exports = show
+
